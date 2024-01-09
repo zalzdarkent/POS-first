@@ -39,7 +39,7 @@ class ProductController extends Controller
             }
         }
 
-        toast('Product Created!', 'success');
+        toast('Produk Ditambahkan!', 'success');
 
         return redirect()->route('products.index');
     }

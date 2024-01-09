@@ -15,10 +15,10 @@
                 <table class="table table-bordered mb-0">
                     <thead>
                     <tr class="align-middle">
-                        <th class="align-middle">Product Name</th>
-                        <th class="align-middle">Code</th>
+                        <th class="align-middle">Nama Produk</th>
+                        <th class="align-middle">Kode</th>
                         <th class="align-middle">
-                            Quantity <i class="bi bi-question-circle-fill text-info" data-toggle="tooltip" data-placement="top" title="Max Quantity: 100"></i>
+                            Kuantitas <i style="cursor: pointer;" class="bi bi-question-circle-fill text-info" data-toggle="tooltip" data-placement="top" title="Maksimal Kuantitas: 100"></i>
                         </th>
                     </tr>
                     </thead>
