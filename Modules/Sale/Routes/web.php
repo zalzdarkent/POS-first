@@ -19,8 +19,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/app/pos', 'PosController@index')->name('app.pos.index');
     Route::post('/app/pos', 'PosController@store')->name('app.pos.store');
 
-    //Generate PDF
-    Route::get('/sales/pdf/{id}', function ($id) {
+    //invoice
+    Route::get('/sales/pdf/invoice/{id}', function ($id) {
         $sale = \Modules\Sale\Entities\Sale::findOrFail($id);
         $customer = \Modules\People\Entities\Customer::findOrFail($sale->customer_id);
 
@@ -33,7 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
     })->name('sales.pdf');
 
     //surat jalan
-    Route::get('/sales/pdf/{id}', function ($id) {
+    Route::get('/sales/pdf/surjal/{id}', function ($id) {
         $sale = \Modules\Sale\Entities\Sale::findOrFail($id);
         $customer = \Modules\People\Entities\Customer::findOrFail($sale->customer_id);
 
