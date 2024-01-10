@@ -90,7 +90,7 @@ class ProductDataTable extends DataTable
                 ->className('text-center align-middle'),
 
             Column::computed('product_quantity')
-                ->title('Kuantitaas')
+                ->title('Kuantitas')
                 ->className('text-center align-middle'),
 
             Column::computed('action')

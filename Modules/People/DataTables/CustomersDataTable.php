@@ -49,15 +49,19 @@ class CustomersDataTable extends DataTable
     protected function getColumns() {
         return [
             Column::make('customer_name')
+                ->title('Nama Pelanggan')
                 ->className('text-center align-middle'),
 
             Column::make('customer_email')
+                ->title('Email Pelanggan')
                 ->className('text-center align-middle'),
 
             Column::make('customer_phone')
+                ->title('Nomor Pelanggan')
                 ->className('text-center align-middle'),
 
             Column::computed('action')
+                ->title('Aksi')
                 ->exportable(false)
                 ->printable(false)
                 ->className('text-center align-middle'),

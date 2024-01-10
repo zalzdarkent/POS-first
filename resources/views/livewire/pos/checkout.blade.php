@@ -14,7 +14,7 @@
                 @endif
 
                 <div class="form-group">
-                    <label for="customer_id">Customer <span class="text-danger">*</span></label>
+                    <label for="customer_id">Pelanggan<span class="text-danger">*</span></label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <a href="{{ route('customers.create') }}" class="btn btn-primary">
@@ -71,7 +71,7 @@
                             <tr>
                                 <td colspan="8" class="text-center">
                         <span class="text-danger">
-                            Please search & select products!
+                            Cari dan Pilih Nama Produk !
                         </span>
                                 </td>
                             </tr>

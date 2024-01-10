@@ -60,6 +60,7 @@ class AdjustmentsDataTable extends DataTable
                 ->className('text-center align-middle'),
 
             Column::computed('action')
+                ->title('Aksi')
                 ->exportable(false)
                 ->printable(false)
                 ->className('text-center align-middle'),

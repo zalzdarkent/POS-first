@@ -18,9 +18,9 @@
         <table class="table table-bordered">
             <thead>
             <tr class="align-middle">
-                <th class="align-middle">#</th>
+                <th class="align-middle">No</th>
                 <th class="align-middle">Nama Produk</th>
-                <th class="align-middle">kode</th>
+                <th class="align-middle">Kode</th>
                 <th class="align-middle">Stok</th>
                 <th class="align-middle">Kuantitas</th>
                 <th class="align-middle">Tipe</th>
@@ -74,7 +74,7 @@
                 <tr>
                     <td colspan="7" class="text-center">
                         <span class="text-danger">
-                            SIlahkan Cari dan Pilih Produk!
+                            Silahkan Cari dan Pilih Produk!
                         </span>
                     </td>
                 </tr>

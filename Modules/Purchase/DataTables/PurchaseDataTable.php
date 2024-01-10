@@ -63,6 +63,7 @@ class PurchaseDataTable extends DataTable
     protected function getColumns() {
         return [
             Column::make('reference')
+                ->title('Nomor Referensi')
                 ->className('text-center align-middle'),
 
             Column::make('supplier_name')
@@ -73,18 +74,23 @@ class PurchaseDataTable extends DataTable
                 ->className('text-center align-middle'),
 
             Column::computed('total_amount')
+                ->title('Total Pembayaran')
                 ->className('text-center align-middle'),
 
             Column::computed('paid_amount')
+                ->title('Total Dibayar')
                 ->className('text-center align-middle'),
 
             Column::computed('due_amount')
+                ->title('Tenggat Pembayaran')
                 ->className('text-center align-middle'),
 
             Column::computed('payment_status')
+                ->title('Status Pembayaran')
                 ->className('text-center align-middle'),
 
             Column::computed('action')
+                ->title('Aksi')
                 ->exportable(false)
                 ->printable(false)
                 ->className('text-center align-middle'),
