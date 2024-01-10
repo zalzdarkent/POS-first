@@ -24,62 +24,62 @@
                         <div class="table-responsive">
                             <table class="table table-bordered table-striped mb-0">
                                 <tr>
-                                    <th>Product Code</th>
+                                    <th>Kode Produk</th>
                                     <td>{{ $product->product_code }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Barcode Symbology</th>
+                                    <th>Simbol Barcode</th>
                                     <td>{{ $product->product_barcode_symbology }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Name</th>
+                                    <th>Nama Produk</th>
                                     <td>{{ $product->product_name }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Category</th>
+                                    <th>Kategory</th>
                                     <td>{{ $product->category->category_name }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Cost</th>
+                                    <th>Biaya Produksi</th>
                                     <td>{{ format_currency($product->product_cost) }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Price</th>
+                                    <th>Harga Jual</th>
                                     <td>{{ format_currency($product->product_price) }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Quantity</th>
+                                    <th>Kuantitas</th>
                                     <td>{{ $product->product_quantity . ' ' . $product->product_unit }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Stock Worth</th>
+                                    <th>Nilai Stok</th>
                                     <td>
                                         COST:: {{ format_currency($product->product_cost * $product->product_quantity) }} /
                                         PRICE:: {{ format_currency($product->product_price * $product->product_quantity) }}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Alert Quantity</th>
+                                    <th>Jumlah Minimum</th>
                                     <td>{{ $product->product_stock_alert }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Tax (%)</th>
+                                    <th>Pajak (%)</th>
                                     <td>{{ $product->product_order_tax ?? 'N/A' }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Tax Type</th>
+                                    <th>Tipe Pajak</th>
                                     <td>
                                         @if($product->product_tax_type == 1)
-                                            Exclusive
+                                            Exclusive (belum termasuk pajak)
                                         @elseif($product->product_tax_type == 2)
-                                            Inclusive
+                                            Inclusive (sudah termasuk pajak)
                                         @else
                                             N/A
                                         @endif
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Note</th>
+                                    <th>Catatan</th>
                                     <td>{{ $product->product_note ?? 'N/A' }}</td>
                                 </tr>
                             </table>
