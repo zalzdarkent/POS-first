@@ -18,14 +18,16 @@ use Modules\Sale\Http\Requests\UpdateSaleRequest;
 class SaleController extends Controller
 {
 
-    public function index(SalesDataTable $dataTable) {
+    public function index(SalesDataTable $dataTable)
+    {
         abort_if(Gate::denies('access_sales'), 403);
 
         return $dataTable->render('sale::index');
     }
 
 
-    public function create() {
+    public function create()
+    {
         abort_if(Gate::denies('create_sales'), 403);
 
         Cart::instance('sale')->destroy();
@@ -34,7 +36,8 @@ class SaleController extends Controller
     }
 
 
-    public function store(StoreSaleRequest $request) {
+    public function store(StoreSaleRequest $request)
+    {
         DB::transaction(function () use ($request) {
             $due_amount = $request->total_amount - $request->paid_amount;
 
@@ -65,6 +68,10 @@ class SaleController extends Controller
             ]);
 
             foreach (Cart::instance('sale')->content() as $cart_item) {
+                $product = Product::find($cart_item->id); // Use find() for non-failing check
+                if (!$product) {
+                    return back()->with('error', 'Product ' . $cart_item->name . ' is no longer available.');
+                }
                 SaleDetails::create([
                     'sale_id' => $sale->id,
                     'product_id' => $cart_item->id,
@@ -80,7 +87,6 @@ class SaleController extends Controller
                 ]);
 
                 if ($request->status == 'Shipped' || $request->status == 'Completed') {
-                    $product = Product::findOrFail($cart_item->id);
                     $product->update([
                         'product_quantity' => $product->product_quantity - $cart_item->qty
                     ]);
@@ -92,7 +98,7 @@ class SaleController extends Controller
             if ($sale->paid_amount > 0) {
                 SalePayment::create([
                     'date' => $request->date,
-                    'reference' => 'INV/'.$sale->reference,
+                    'reference' => 'INV/' . $sale->reference,
                     'amount' => $sale->paid_amount,
                     'sale_id' => $sale->id,
                     'payment_method' => $request->payment_method
@@ -106,7 +112,8 @@ class SaleController extends Controller
     }
 
 
-    public function show(Sale $sale) {
+    public function show(Sale $sale)
+    {
         abort_if(Gate::denies('show_sales'), 403);
 
         $customer = Customer::findOrFail($sale->customer_id);
@@ -115,7 +122,8 @@ class SaleController extends Controller
     }
 
 
-    public function edit(Sale $sale) {
+    public function edit(Sale $sale)
+    {
         abort_if(Gate::denies('edit_sales'), 403);
 
         $sale_details = $sale->saleDetails;
@@ -125,6 +133,14 @@ class SaleController extends Controller
         $cart = Cart::instance('sale');
 
         foreach ($sale_details as $sale_detail) {
+            $product = Product::find($sale_detail->product_id);
+
+            if (!$product) {
+                toast()->error('Produk sudah terhapus dari sistem');
+                return redirect()->route('sales.index'); // Ganti dengan redirect ke halaman yang sesuai
+
+            }
+
             $cart->add([
                 'id'      => $sale_detail->product_id,
                 'name'    => $sale_detail->product_name,
@@ -136,7 +152,7 @@ class SaleController extends Controller
                     'product_discount_type' => $sale_detail->product_discount_type,
                     'sub_total'   => $sale_detail->sub_total,
                     'code'        => $sale_detail->product_code,
-                    'stock'       => Product::findOrFail($sale_detail->product_id)->product_quantity,
+                    'stock'       => $product->product_quantity,
                     'product_tax' => $sale_detail->product_tax_amount,
                     'unit_price'  => $sale_detail->unit_price
                 ]
@@ -147,7 +163,9 @@ class SaleController extends Controller
     }
 
 
-    public function update(UpdateSaleRequest $request, Sale $sale) {
+
+    public function update(UpdateSaleRequest $request, Sale $sale)
+    {
         DB::transaction(function () use ($request, $sale) {
 
             $due_amount = $request->total_amount - $request->paid_amount;
@@ -190,6 +208,10 @@ class SaleController extends Controller
             ]);
 
             foreach (Cart::instance('sale')->content() as $cart_item) {
+                $product = Product::find($cart_item->id);
+                if (!$product) {
+                    return back()->with('error', 'Product ' . $cart_item->name . ' is no longer available.');
+                }
                 SaleDetails::create([
                     'sale_id' => $sale->id,
                     'product_id' => $cart_item->id,
@@ -205,7 +227,6 @@ class SaleController extends Controller
                 ]);
 
                 if ($request->status == 'Shipped' || $request->status == 'Completed') {
-                    $product = Product::findOrFail($cart_item->id);
                     $product->update([
                         'product_quantity' => $product->product_quantity - $cart_item->qty
                     ]);
@@ -221,7 +242,8 @@ class SaleController extends Controller
     }
 
 
-    public function destroy(Sale $sale) {
+    public function destroy(Sale $sale)
+    {
         abort_if(Gate::denies('delete_sales'), 403);
 
         $sale->delete();
