@@ -62,6 +62,7 @@
             <a class="dropdown-item" href="{{ route('profile.edit') }}">
                 <i class="mfe-2  bi bi-person" style="font-size: 1.2rem;"></i> Profile
             </a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <i class="mfe-2  bi bi-box-arrow-left" style="font-size: 1.2rem;"></i> Logout
             </a>

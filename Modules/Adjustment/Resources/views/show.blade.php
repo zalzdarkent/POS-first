@@ -60,6 +60,15 @@
                                         </td>
                                     </tr>
                                 @endforeach
+                                <tr>
+                                    <th colspan="4">Note</th>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="4">
+                                        {{$adjustment->note}}
+                                    </td>
+                                </tr>
                             </table>
                         </div>
                     </div>
