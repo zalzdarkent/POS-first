@@ -17,6 +17,7 @@ class CreateSalesTable extends Migration
             $table->id();
             $table->date('date');
             $table->string('reference');
+            $table->unsignedBigInteger('product_id')->nullable();
             $table->unsignedBigInteger('customer_id')->nullable();
             $table->string('customer_name');
             $table->integer('tax_percentage')->default(0);
@@ -31,6 +32,7 @@ class CreateSalesTable extends Migration
             $table->string('payment_status');
             $table->string('payment_method');
             $table->text('note')->nullable();
+            $table->foreign('product_id')->references('id')->on('products')->nullOnDelete();
             $table->foreign('customer_id')->references('id')->on('customers')->nullOnDelete();
             $table->timestamps();
         });
