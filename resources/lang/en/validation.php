@@ -78,7 +78,7 @@ return [
         'array' => 'The :attribute must not have more than :value items.',
     ],
     'max' => [
-        'numeric' => 'The :attribute must not be greater than :max.',
+        'numeric' => ':attribute tidak boleh lebih dari :max.',
         'file' => 'The :attribute must not be greater than :max kilobytes.',
         'string' => 'The :attribute must not be greater than :max characters.',
         'array' => 'The :attribute must not have more than :max items.',
@@ -151,6 +151,18 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'customer_id' => 'ID Pelanggan',
+        'reference' => 'Referensi',
+        'tax_percentage' => 'Persentase Pajak',
+        'discount_percentage' => 'Persentase Diskon',
+        'shipping_amount' => 'Jumlah Pengiriman',
+        'total_amount' => 'Total Jumlah',
+        'paid_amount' => 'Jumlah yang Dibayarkan',
+        'status' => 'Status',
+        'payment_method' => 'Metode Pembayaran',
+        'note' => 'Catatan',
+    ],
+
 
 ];
