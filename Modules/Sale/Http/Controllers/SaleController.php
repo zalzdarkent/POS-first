@@ -170,6 +170,12 @@ class SaleController extends Controller
 
             $due_amount = $request->total_amount - $request->paid_amount;
 
+            // Memastikan bahwa paid_amount tidak lebih kecil dari total_amount
+            if ($due_amount < 0) {
+                return back()->with('error', 'Paid amount cannot be greater than total amount.');
+            }
+
+            // Set due_amount sesuai kebutuhan
             if ($due_amount == $request->total_amount) {
                 $payment_status = 'Unpaid';
             } elseif ($due_amount > 0) {
