@@ -155,6 +155,13 @@
                 </a>
             </li>
         </ul>
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item">
+                <a class="c-sidebar-nav-link {{ request()->routeIs('sales.leaderboard') ? 'c-active' : '' }}" href="{{ route('sales.leaderboard') }}">
+                    <i class="c-sidebar-nav-icon bi bi-trophy" style="line-height: 1;"></i> Leaderboard Penjualan
+                </a>
+            </li>
+        </ul>
     </li>
 @endcan
 

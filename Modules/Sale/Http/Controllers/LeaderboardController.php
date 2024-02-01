@@ -5,18 +5,20 @@ namespace Modules\Sale\Http\Controllers;
 use Modules\Sale\Entities\Sale;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Modules\Sale\Entities\SaleDetails;
+use Modules\Sale\DataTables\LeaderboardDataTable;
 
 class LeaderboardController extends Controller
 {
-    public function showLeaderboard()
+    public function showLeaderboard(LeaderboardDataTable $dataTable)
     {
-        $products = DB::table('products')
-            ->leftJoin('sales', 'products.id', '=', 'sales.product_id')
-            ->select('products.id', 'products.product_name', 'products.product_quantity', DB::raw('SUM(IFNULL(sales.quantity, 0)) as total_sold'))
-            ->groupBy('products.id', 'products.product_name', 'products.product_quantity')
-            ->orderByDesc('total_sold')
+        $products = SaleDetails::select('product_id', 'product_name')
+            ->selectRaw('SUM(quantity) as total_quantity_sold')
+            ->whereRaw("DATE_FORMAT(created_at, '%Y-%m') = ?", [date('Y-m')])
+            ->groupBy('product_id', 'product_name')
+            ->orderByDesc('total_quantity_sold')
             ->get();
 
-        return view('leaderboard.index', compact('sales'));
+        return $dataTable->render('sale::leaderboard.index');
     }
 }
