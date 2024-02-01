@@ -20,8 +20,8 @@ class CreateProductsTable extends Migration
             $table->string('product_code')->unique()->nullable();
             $table->string('product_barcode_symbology')->nullable();
             $table->integer('product_quantity');
-            $table->integer('product_cost');
-            $table->integer('product_price');
+            $table->unsignedBigInteger('product_cost');
+            $table->unsignedBigInteger('product_price');
             $table->string('product_unit')->nullable();
             $table->integer('product_stock_alert');
             $table->integer('product_order_tax')->nullable();
