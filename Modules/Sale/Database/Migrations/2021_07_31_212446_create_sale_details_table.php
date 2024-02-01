@@ -20,12 +20,12 @@ class CreateSaleDetailsTable extends Migration
             $table->string('product_name');
             $table->string('product_code');
             $table->integer('quantity');
-            $table->integer('price');
-            $table->integer('unit_price');
+            $table->unsignedBigInteger('price');
+            $table->unsignedBigInteger('unit_price');
             $table->unsignedBigInteger('sub_total');
-            $table->integer('product_discount_amount');
+            $table->unsignedBigInteger('product_discount_amount');
             $table->string('product_discount_type')->default('fixed');
-            $table->integer('product_tax_amount');
+            $table->unsignedBigInteger('product_tax_amount');
             $table->foreign('sale_id')->references('id')
                 ->on('sales')->cascadeOnDelete();
             $table->foreign('product_id')->references('id')
