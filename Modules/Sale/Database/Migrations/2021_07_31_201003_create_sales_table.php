@@ -23,10 +23,10 @@ class CreateSalesTable extends Migration
             $table->integer('tax_percentage')->default(0);
             $table->integer('tax_amount')->default(0);
             $table->integer('discount_percentage')->default(0);
-            $table->integer('discount_amount')->default(0);
-            $table->integer('shipping_amount')->default(0);
-            $table->integer('total_amount');
-            $table->integer('paid_amount');
+            $table->unsignedBigInteger('discount_amount')->default(0);
+            $table->unsignedBigInteger('shipping_amount')->default(0);
+            $table->unsignedBigInteger('total_amount');
+            $table->unsignedBigInteger('paid_amount');
             $table->integer('due_amount');
             $table->string('status');
             $table->string('payment_status');
