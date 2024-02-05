@@ -19,7 +19,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h1>Leaderboard Penjualan Selama Satu Bulan</h1>
+                        <h1>Daftar Penjualan Selama Satu Bulan</h1>
                         <div class="table-responsive">
                             {!! $dataTable->table() !!}
                         </div>

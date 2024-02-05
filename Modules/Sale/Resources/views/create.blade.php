@@ -14,7 +14,7 @@
     <div class="container-fluid mb-4">
         <div class="row">
             <div class="col-12">
-                <livewire:search-product/>
+                <livewire:search-product />
             </div>
         </div>
 
@@ -30,7 +30,8 @@
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label for="reference">Nomor Referensi <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="reference" required readonly value="SL">
+                                        <input type="text" class="form-control" name="reference" required readonly
+                                            value="SL">
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
@@ -38,8 +39,9 @@
                                         <div class="form-group">
                                             <label for="customer_id">Pelanggan <span class="text-danger">*</span></label>
                                             <select class="form-control" name="customer_id" id="customer_id" required>
-                                                @foreach(\Modules\People\Entities\Customer::all() as $customer)
-                                                    <option value="{{ $customer->id }}">{{ $customer->customer_name }}</option>
+                                                @foreach (\Modules\People\Entities\Customer::all() as $customer)
+                                                    <option value="{{ $customer->id }}">{{ $customer->customer_name }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -49,13 +51,14 @@
                                     <div class="from-group">
                                         <div class="form-group">
                                             <label for="date">Tanggal <span class="text-danger">*</span></label>
-                                            <input type="date" class="form-control" name="date" required value="{{ \Carbon\Carbon::now()->format('Y-m-d') }}">
+                                            <input type="date" class="form-control" name="date" required
+                                                value="{{ \Carbon\Carbon::now()->format('Y-m-d') }}">
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <livewire:product-cart :cartInstance="'sale'"/>
+                            <livewire:product-cart :cartInstance="'sale'" />
 
                             <div class="form-row">
                                 <div class="col-lg-4">
@@ -71,7 +74,8 @@
                                 <div class="col-lg-4">
                                     <div class="from-group">
                                         <div class="form-group">
-                                            <label for="payment_method">Metode Pembayaran <span class="text-danger">*</span></label>
+                                            <label for="payment_method">Metode Pembayaran <span
+                                                    class="text-danger">*</span></label>
                                             <select class="form-control" name="payment_method" id="payment_method" required>
                                                 <option value="Cash">Cash</option>
                                                 <option value="Credit Card">Credit Card</option>
@@ -86,7 +90,8 @@
                                     <div class="form-group">
                                         <label for="paid_amount">Uang Dibayarkan <span class="text-danger">*</span></label>
                                         <div class="input-group">
-                                            <input id="paid_amount" type="text" class="form-control" name="paid_amount" required>
+                                            <input id="paid_amount" type="text"
+                                                class="form-control" name="paid_amount" required>
                                             <div class="input-group-append">
                                                 <button id="getTotalAmount" class="btn btn-primary" type="button">
                                                     <i class="bi bi-check-square"></i>
