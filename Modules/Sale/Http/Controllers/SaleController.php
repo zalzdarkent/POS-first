@@ -58,7 +58,7 @@ class SaleController extends Controller
                 'shipping_amount' => $request->shipping_amount * 100,
                 'paid_amount' => $request->paid_amount * 100,
                 'total_amount' => $request->total_amount * 100,
-                'due_amount' => $due_amount * 100,
+                'due_amount' => ($request->total_amount - $request->paid_amount) * 100,
                 'status' => $request->status,
                 'payment_status' => $payment_status,
                 'payment_method' => $request->payment_method,
