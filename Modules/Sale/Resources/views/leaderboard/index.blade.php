@@ -9,7 +9,7 @@
 @section('breadcrumb')
     <ol class="breadcrumb border-0 m-0">
         <li class="breadcrumb-item"><a href="{{ route('home') }}">Beranda</a></li>
-        <li class="breadcrumb-item active">Leaderboard Penjualan</li>
+        <li class="breadcrumb-item active">Daftar Penjualan Bulan {{ \Carbon\Carbon::now()->translatedFormat('F') }}</li>
     </ol>
 @endsection
 
@@ -19,7 +19,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h1>Daftar Penjualan Selama Satu Bulan</h1>
+                        <h1>Daftar Penjualan Bulan {{ \Carbon\Carbon::now()->translatedFormat('F') }}</h1>
                         <div class="table-responsive">
                             {!! $dataTable->table() !!}
                         </div>
