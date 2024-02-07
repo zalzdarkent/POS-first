@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 namespace Modules\Sale\DataTables;
 
 use Modules\Sale\Entities\SaleDetail;
@@ -17,6 +18,9 @@ class LeaderboardDataTable extends DataTable
             ->eloquent($query)
             ->addColumn('total_quantity_sold', function ($data) {
                 return $data->total_quantity_sold;
+            })
+            ->addColumn('total_revenue', function ($data) {
+                return format_currency($data->total_revenue / 100);
             });
     }
 
@@ -25,6 +29,7 @@ class LeaderboardDataTable extends DataTable
         return $model->newQuery()
             ->select('product_id', 'product_name')
             ->selectRaw('SUM(quantity) as total_quantity_sold')
+            ->selectRaw('SUM(price * quantity) as total_revenue') // Hitung total pendapatan dari penjualan
             ->whereRaw("DATE_FORMAT(created_at, '%Y-%m') = ?", [date('Y-m')])
             ->groupBy('product_id', 'product_name')
             ->orderByDesc('total_quantity_sold');
@@ -61,6 +66,10 @@ class LeaderboardDataTable extends DataTable
 
             Column::computed('total_quantity_sold')
                 ->title('Total Terjual')
+                ->className('text-center align-middle'),
+
+            Column::computed('total_revenue')
+                ->title('Total Pendapatan')
                 ->className('text-center align-middle'),
         ];
     }
