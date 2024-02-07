@@ -11,15 +11,7 @@ use Modules\Sale\DataTables\LeaderboardDataTable;
 class LeaderboardController extends Controller
 {
     public function showLeaderboard(LeaderboardDataTable $dataTable)
-    {
-        $products = SaleDetails::select('product_id', 'product_name')
-            ->selectRaw('SUM(quantity) as total_quantity_sold')
-            ->selectRaw('SUM(price * quantity) as total_revenue') // Hitung total pendapatan dari penjualan
-            ->whereRaw("DATE_FORMAT(created_at, '%Y-%m') = ?", [date('Y-m')])
-            ->groupBy('product_id', 'product_name')
-            ->orderByDesc('total_quantity_sold')
-            ->get();
-
+    {       
         return $dataTable->render('sale::leaderboard.index');
     }
 }
