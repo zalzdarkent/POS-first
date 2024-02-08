@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Edit Purchase')
+@section('title', 'Ubah Pembelian')
 
 @section('breadcrumb')
     <ol class="breadcrumb border-0 m-0">
-        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('home') }}">Beranda</a></li>
         <li class="breadcrumb-item"><a href="{{ route('purchases.index') }}">Pembelian</a></li>
-        <li class="breadcrumb-item active">Edit</li>
+        <li class="breadcrumb-item active">Ubah</li>
     </ol>
 @endsection
 

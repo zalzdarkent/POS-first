@@ -66,6 +66,7 @@ class ProductCategoriesDataTable extends DataTable
                 ->addClass('text-center'),
 
             Column::make('created_at')
+                ->title('Dibuat Pada')
                 ->visible(false)
         ];
     }

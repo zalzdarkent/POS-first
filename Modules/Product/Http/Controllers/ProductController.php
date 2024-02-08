@@ -80,7 +80,7 @@ class ProductController extends Controller
             }
         }
 
-        toast('Product Updated!', 'info');
+        toast('Produk Diperbarui!', 'info');
 
         return redirect()->route('products.index');
     }
@@ -91,7 +91,7 @@ class ProductController extends Controller
 
         $product->delete();
 
-        toast('Product Deleted!', 'warning');
+        toast('Produk Dihapus!', 'warning');
 
         return redirect()->route('products.index');
     }

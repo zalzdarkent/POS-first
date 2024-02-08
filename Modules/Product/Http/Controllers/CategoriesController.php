@@ -32,7 +32,7 @@ class CategoriesController extends Controller
             'category_name' => $request->category_name,
         ]);
 
-        toast('Product Category Created!', 'success');
+        toast('Kategori Produk Dibuat!', 'success');
 
         return redirect()->back();
     }
@@ -60,7 +60,7 @@ class CategoriesController extends Controller
             'category_name' => $request->category_name,
         ]);
 
-        toast('Product Category Updated!', 'info');
+        toast('Kategori Produk Diperbarui!', 'info');
 
         return redirect()->route('product-categories.index');
     }
@@ -72,12 +72,12 @@ class CategoriesController extends Controller
         $category = Category::findOrFail($id);
 
         if ($category->products()->exists()) {
-            return back()->withErrors('Can\'t delete because there are products associated with this category.');
+            return back()->withErrors('Tidak dapat menghapus karena ada produk yang terkait dengan kategori ini.');
         }
 
         $category->delete();
 
-        toast('Product Category Deleted!', 'warning');
+        toast('Kategori Produk Dihapus!', 'warning');
 
         return redirect()->route('product-categories.index');
     }

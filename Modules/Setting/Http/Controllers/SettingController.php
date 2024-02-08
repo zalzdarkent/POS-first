@@ -37,7 +37,7 @@ class SettingController extends Controller
 
         cache()->forget('settings');
 
-        toast('Settings Updated!', 'info');
+        toast('Pengaturan Diperbarui!', 'info');
 
         return redirect()->route('settings.index');
     }
@@ -69,7 +69,7 @@ class SettingController extends Controller
             file_put_contents(base_path('.env'), str_replace($toReplace, $replaceWith, file_get_contents(base_path('.env'))));
             Artisan::call('cache:clear');
 
-            toast('Mail Settings Updated!', 'info');
+            toast('Pengaturan Diperbarui!', 'info');
         } catch (\Exception $exception) {
             Log::error($exception);
             session()->flash('settings_smtp_message', 'Something Went Wrong!');
