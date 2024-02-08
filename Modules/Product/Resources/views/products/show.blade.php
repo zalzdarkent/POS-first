@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Product Details')
+@section('title', 'Detail Produk')
 
 @section('breadcrumb')
     <ol class="breadcrumb border-0 m-0">
-        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-        <li class="breadcrumb-item"><a href="{{ route('products.index') }}">Products</a></li>
-        <li class="breadcrumb-item active">Details</li>
+        <li class="breadcrumb-item"><a href="{{ route('home') }}">Beranda</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('products.index') }}">Produk</a></li>
+        <li class="breadcrumb-item active">Detail</li>
     </ol>
 @endsection
 
@@ -36,7 +36,7 @@
                                     <td>{{ $product->product_name }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Kategory</th>
+                                    <th>Kategori</th>
                                     <td>{{ $product->category->category_name }}</td>
                                 </tr>
                                 <tr>

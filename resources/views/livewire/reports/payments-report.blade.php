@@ -7,7 +7,7 @@
                         <div class="form-row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>Start Date <span class="text-danger">*</span></label>
+                                    <label>Dari Tanggal <span class="text-danger">*</span></label>
                                     <input wire:model="start_date" type="date" class="form-control" name="start_date">
                                     @error('start_date')
                                     <span class="text-danger mt-1">{{ $message }}</span>
@@ -16,7 +16,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>End Date <span class="text-danger">*</span></label>
+                                    <label>Sampai Tanggal <span class="text-danger">*</span></label>
                                     <input wire:model="end_date" type="date" class="form-control" name="end_date">
                                     @error('end_date')
                                     <span class="text-danger mt-1">{{ $message }}</span>
@@ -42,9 +42,9 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>Payment Method</label>
+                                    <label>Metode Pembayaran</label>
                                     <select wire:model="payment_method" class="form-control" name="payment_method">
-                                        <option value="">Select Payment Method</option>
+                                        <option value="">Pilih Metode Pembayaran!</option>
                                         <option value="Cash">Cash</option>
                                         <option value="Credit Card">Credit Card</option>
                                         <option value="Bank Transfer">Bank Transfer</option>
@@ -58,7 +58,7 @@
                             <button type="submit" class="btn btn-primary">
                                 <span wire:target="generateReport" wire:loading class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                 <i wire:target="generateReport" wire:loading.remove class="bi bi-shuffle"></i>
-                                Filter Report
+                                Cari
                             </button>
                         </div>
                     </form>
@@ -109,7 +109,7 @@
                             @empty
                                 <tr>
                                     <td colspan="8">
-                                        <span class="text-danger">No Data Available!</span>
+                                        <span class="text-danger">Tidak ada data yang tersedia!</span>
                                     </td>
                                 </tr>
                             @endforelse
@@ -128,7 +128,7 @@
                 <div class="card border-0 shadow-sm">
                     <div class="card-body">
                         <div class="alert alert-warning mb-0">
-                            No Data Available!
+                        Tidak ada data yang tersedia!
                         </div>
                     </div>
                 </div>

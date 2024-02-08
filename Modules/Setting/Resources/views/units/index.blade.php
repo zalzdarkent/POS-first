@@ -9,7 +9,7 @@
 
 @section('breadcrumb')
     <ol class="breadcrumb border-0 m-0">
-        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('home') }}">Beranda</a></li>
         <li class="breadcrumb-item active">Units</li>
     </ol>
 @endsection
@@ -21,7 +21,7 @@
                 <div class="card border-0 shadow-sm">
                     <div class="card-body">
                         <a href="{{ route('units.create') }}" class="btn btn-primary">
-                            Add Unit <i class="bi bi-plus"></i>
+                            Tambah Unit <i class="bi bi-plus"></i>
                         </a>
 
                         <hr>
@@ -31,11 +31,11 @@
                                 <thead>
                                 <tr>
                                     <th class="align-middle">No.</th>
-                                    <th class="align-middle">Name</th>
-                                    <th class="align-middle">Short Name</th>
+                                    <th class="align-middle">Nama</th>
+                                    <th class="align-middle">Singkatan</th>
                                     <th class="align-middle">Operator</th>
                                     <th class="align-middle">Operation Value</th>
-                                    <th class="align-middle">Action</th>
+                                    <th class="align-middle">Aksi</th>
                                 </tr>
                                 </thead>
                                 <tbody>

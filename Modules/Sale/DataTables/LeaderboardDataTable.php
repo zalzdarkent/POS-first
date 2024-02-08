@@ -29,6 +29,7 @@ class LeaderboardDataTable extends DataTable
         return $model->newQuery()
             ->select('product_id', 'product_name')
             ->selectRaw('SUM(quantity) as total_quantity_sold')
+            ->selectRaw('SUM(unit_price * quantity) as total_revenue') // Hitung total pendapatan dari penjualan
             ->selectRaw('SUM(unit_price * quantity) as total_revenue')
             ->whereRaw("DATE_FORMAT(created_at, '%Y-%m') = ?", [date('Y-m')])
             ->groupBy('product_id', 'product_name')
