@@ -1,6 +1,9 @@
 <div>
     <div class="row">
         <div class="col-12">
+            <a href="{{ route('profit-loss-report.index') }}" class="btn btn-secondary mb-3">
+                <i class="bi bi-arrow-left"></i> Back
+            </a>
             <div class="card border-0 shadow-sm">
                 <div class="card-body">
                     <form wire:submit="generateReport">
