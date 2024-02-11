@@ -35,16 +35,16 @@ class ProductTable extends Component
                 if (in_array($product, array_map(function ($adjustment) {
                     return $adjustment['product'];
                 }, $this->products))) {
-                    return session()->flash('message', 'Already exists in the product list!');
+                    return session()->flash('message', 'Sudah ada di daftar produk!');
                 }
                 break;
             case false:
                 if (in_array($product, $this->products)) {
-                    return session()->flash('message', 'Already exists in the product list!');
+                    return session()->flash('message', 'Sudah ada di daftar produk!');
                 }
                 break;
             default:
-                return session()->flash('message', 'Something went wrong!');
+                return session()->flash('message', 'Terjadi Kesalahan!');
         }
 
         array_push($this->products, $product);

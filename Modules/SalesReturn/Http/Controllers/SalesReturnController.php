@@ -100,7 +100,7 @@ class SalesReturnController extends Controller
             }
         });
 
-        toast('Sale Return Created!', 'success');
+        toast('Retur Penjualan Dibuat!', 'success');
 
         return redirect()->route('sale-returns.index');
     }
@@ -214,7 +214,7 @@ class SalesReturnController extends Controller
             Cart::instance('sale_return')->destroy();
         });
 
-        toast('Sale Return Updated!', 'info');
+        toast('Retur Penjualan Diperbarui!', 'info');
 
         return redirect()->route('sale-returns.index');
     }
@@ -225,7 +225,7 @@ class SalesReturnController extends Controller
 
         $sale_return->delete();
 
-        toast('Sale Return Deleted!', 'warning');
+        toast('Retur Penjualan Dihapus!', 'warning');
 
         return redirect()->route('sale-returns.index');
     }

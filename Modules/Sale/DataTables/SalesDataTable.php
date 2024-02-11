@@ -97,6 +97,7 @@ class SalesDataTable extends DataTable
                 ->className('text-center align-middle'),
 
             Column::make('created_at')
+                ->title('Dibuat Pada')
                 ->visible(false)
         ];
     }

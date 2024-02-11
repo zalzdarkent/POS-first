@@ -82,7 +82,7 @@ class SaleReturnsDataTable extends DataTable
                 ->className('text-center align-middle'),
 
             Column::computed('due_amount')
-                ->title('Tenggat Pembayaran')
+                ->title('Total Pembayaran')
                 ->className('text-center align-middle'),
 
             Column::computed('payment_status')
@@ -96,6 +96,7 @@ class SaleReturnsDataTable extends DataTable
                 ->className('text-center align-middle'),
 
             Column::make('created_at')
+                ->title('Dibuat Pada')
                 ->visible(false)
         ];
     }

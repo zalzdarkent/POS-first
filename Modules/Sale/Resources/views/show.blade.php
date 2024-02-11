@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Sales Details')
+@section('title', 'Detail Penjualan')
 
 @section('breadcrumb')
     <ol class="breadcrumb border-0 m-0">
         <li class="breadcrumb-item"><a href="{{ route('home') }}">Beranda</a></li>
         <li class="breadcrumb-item"><a href="{{ route('sales.index') }}">Penjualan</a></li>
-        <li class="breadcrumb-item active">Details</li>
+        <li class="breadcrumb-item active">Detail</li>
     </ol>
 @endsection
 
@@ -62,11 +62,11 @@
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
-                                    <th class="align-middle">Product</th>
-                                    <th class="align-middle">Net Unit Price</th>
-                                    <th class="align-middle">Quantity</th>
-                                    <th class="align-middle">Discount</th>
-                                    <th class="align-middle">Tax</th>
+                                    <th class="align-middle">Produk</th>
+                                    <th class="align-middle">Harga</th>
+                                    <th class="align-middle">Kuantitas</th>
+                                    <th class="align-middle">Diskon</th>
+                                    <th class="align-middle">Pajak</th>
                                     <th class="align-middle">Sub Total</th>
                                 </tr>
                                 </thead>
@@ -107,19 +107,19 @@
                                 <table class="table">
                                     <tbody>
                                     <tr>
-                                        <td class="left"><strong>Discount ({{ $sale->discount_percentage }}%)</strong></td>
+                                        <td class="left"><strong>Diskon ({{ $sale->discount_percentage }}%)</strong></td>
                                         <td class="right">{{ format_currency($sale->discount_amount) }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left"><strong>Tax ({{ $sale->tax_percentage }}%)</strong></td>
+                                        <td class="left"><strong>Pajak ({{ $sale->tax_percentage }}%)</strong></td>
                                         <td class="right">{{ format_currency($sale->tax_amount) }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left"><strong>Shipping</strong></td>
+                                        <td class="left"><strong>Biaya Pengiriman</strong></td>
                                         <td class="right">{{ format_currency($sale->shipping_amount) }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left"><strong>Grand Total</strong></td>
+                                        <td class="left"><strong>Total Keseluruhan</strong></td>
                                         <td class="right"><strong>{{ format_currency($sale->total_amount) }}</strong></td>
                                     </tr>
                                     </tbody>

@@ -34,7 +34,7 @@ class   UnitsController extends Controller
             'operation_value' => $request->operation_value,
         ]);
 
-        toast('Unit Created!', 'success');
+        toast('Unit Dibuat!', 'success');
 
         return redirect()->route('units.index');
     }
@@ -58,7 +58,7 @@ class   UnitsController extends Controller
             'operation_value' => $request->operation_value,
         ]);
 
-        toast('Unit Updated!', 'info');
+        toast('Unit Diperbarui!', 'info');
 
         return redirect()->route('units.index');
     }
@@ -66,7 +66,7 @@ class   UnitsController extends Controller
     public function destroy(Unit $unit) {
         $unit->delete();
 
-        toast('Unit Deleted!', 'warning');
+        toast('Unit Dihapus!', 'warning');
 
         return redirect()->route('units.index');
     }
