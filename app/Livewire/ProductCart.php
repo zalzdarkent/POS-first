@@ -79,7 +79,7 @@ class ProductCart extends Component
         });
 
         if ($exists->isNotEmpty()) {
-            session()->flash('message', 'Product exists in the cart!');
+            session()->flash('message', 'Produk ada di keranjang!');
 
             return;
         }
@@ -125,7 +125,7 @@ class ProductCart extends Component
     public function updateQuantity($row_id, $product_id) {
         if  ($this->cart_instance == 'sale' || $this->cart_instance == 'purchase_return') {
             if ($this->check_quantity[$product_id] < $this->quantity[$product_id]) {
-                session()->flash('message', 'The requested quantity is not available in stock.');
+                session()->flash('message', 'Jumlah yang diminta tidak tersedia dalam stok.');
                 return;
             }
         }
@@ -179,7 +179,7 @@ class ProductCart extends Component
             $this->updateCartOptions($row_id, $product_id, $cart_item, $discount_amount);
         }
 
-        session()->flash('discount_message' . $product_id, 'Discount added to the product!');
+        session()->flash('discount_message' . $product_id, 'Diskon ditambahkan ke produk!');
     }
 
     public function updatePrice($row_id, $product_id) {

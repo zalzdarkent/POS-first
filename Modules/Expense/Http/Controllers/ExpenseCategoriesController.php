@@ -31,7 +31,7 @@ class ExpenseCategoriesController extends Controller
             'category_description' => $request->category_description
         ]);
 
-        toast('Expense Category Created!', 'success');
+        toast('Kategori Pengeluaran Dibuat!', 'success');
 
         return redirect()->route('expense-categories.index');
     }
@@ -57,7 +57,7 @@ class ExpenseCategoriesController extends Controller
             'category_description' => $request->category_description
         ]);
 
-        toast('Expense Category Updated!', 'info');
+        toast('Kategori Pengeluaran Diperbarui!', 'info');
 
         return redirect()->route('expense-categories.index');
     }
@@ -67,12 +67,12 @@ class ExpenseCategoriesController extends Controller
         abort_if(Gate::denies('access_expense_categories'), 403);
 
         if ($expenseCategory->expenses()->isNotEmpty()) {
-            return back()->withErrors('Can\'t delete beacuse there are expenses associated with this category.');
+            return back()->withErrors('Tidak dapat menghapus karena ada biaya yang terkait dengan kategori ini.');
         }
 
         $expenseCategory->delete();
 
-        toast('Expense Category Deleted!', 'warning');
+        toast('Kategori Pengeluaran Dihapus!', 'warning');
 
         return redirect()->route('expense-categories.index');
     }

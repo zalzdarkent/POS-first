@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Edit Sale Return')
+@section('title', 'Ubah Retur Penjualan')
 
 @section('breadcrumb')
     <ol class="breadcrumb border-0 m-0">
         <li class="breadcrumb-item"><a href="{{ route('home') }}">Beranda</a></li>
         <li class="breadcrumb-item"><a href="{{ route('sale-returns.index') }}">Retur Penjualan</a></li>
-        <li class="breadcrumb-item active">Edit</li>
+        <li class="breadcrumb-item active">Ubah</li>
     </ol>
 @endsection
 
@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group">
-                                        <label for="paid_amount">Uang Dibayarkan <span class="text-danger">*</span></label>
+                                        <label for="paid_amount">Total Pembayaran <span class="text-danger">*</span></label>
                                         <input id="paid_amount" type="text" class="form-control" name="paid_amount" required value="{{ $sale_return->paid_amount }}" readonly>
                                     </div>
                                 </div>
@@ -91,7 +91,7 @@
 
                             <div class="mt-3">
                                 <button type="submit" class="btn btn-primary">
-                                    Update Retur Penjualan <i class="bi bi-check"></i>
+                                    Perbarui Retur Penjualan <i class="bi bi-check"></i>
                                 </button>
                             </div>
                         </form>

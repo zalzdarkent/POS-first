@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Create Sale')
+@section('title', 'Buat Penjualan')
 
 @section('breadcrumb')
     <ol class="breadcrumb border-0 m-0">
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group">
-                                        <label for="paid_amount">Uang Dibayarkan <span class="text-danger">*</span></label>
+                                        <label for="paid_amount">Total Pembayaran <span class="text-danger">*</span></label>
                                         <div class="input-group">
                                             <input id="paid_amount" type="text"
                                                 class="form-control" name="paid_amount" required>
