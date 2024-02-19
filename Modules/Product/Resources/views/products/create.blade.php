@@ -12,6 +12,7 @@
 
 @section('content')
     <div class="container-fluid">
+        @include('utils.alerts')
         <form id="product-form" action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
@@ -50,7 +51,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="barcode_symbology">Simbol Barcode <span class="text-danger">*</span></label>
                                         <select class="form-control" name="product_barcode_symbology" id="barcode_symbology" required>
@@ -62,7 +63,7 @@
                                             <option selected value="EAN13">EAN-13</option><option value="EAN8">EAN-8</option>
                                         </select>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
 
                             <div class="form-row">
@@ -137,7 +138,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="image">Gambar Produk <i class="bi bi-question-circle-fill text-info" data-toggle="tooltip" data-placement="top" title="Max Files: 3, Max File Size: 1MB, Image Size: 400x400"></i></label>
+                                <label for="image">Gambar Produk <i class="bi bi-question-circle-fill text-info" data-toggle="tooltip" data-placement="top" title="Max Files: 3, Max File Size: 15MB, Image Size: 400x400"></i></label>
                                 <div class="dropzone d-flex flex-wrap align-items-center justify-content-center" id="document-dropzone">
                                     <div class="dz-message" data-dz-message>
                                         <i class="bi bi-cloud-arrow-up"></i>
@@ -148,7 +149,6 @@
                     </div>
                 </div>
                 <div class="col-lg-12">
-                    @include('utils.alerts')
                     <div class="form-group">
                         <button class="btn btn-primary">Create Product <i class="bi bi-check"></i></button>
                     </div>
@@ -170,7 +170,7 @@
         var uploadedDocumentMap = {}
         Dropzone.options.documentDropzone = {
             url: '{{ route('dropzone.upload') }}',
-            maxFilesize: 1,
+            maxFilesize: 15,
             acceptedFiles: '.jpg, .jpeg, .png',
             maxFiles: 3,
             addRemoveLinks: true,
