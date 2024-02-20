@@ -35,7 +35,7 @@
                             </div>
 
                             <div class="form-row">
-                                <div class="col-md-6">
+                                <div class="col-md-6 mb-3">
                                     <label for="category_id">Kategori <span class="text-danger">*</span></label>
                                     <div class="input-group">
                                         <select class="form-control" name="category_id" id="category_id" required>
@@ -99,15 +99,15 @@
                             <div class="form-row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="product_order_tax">Tax (%)</label>
+                                        <label for="product_order_tax">Pajak (%)</label>
                                         <input type="number" class="form-control" name="product_order_tax" value="{{ old('product_order_tax') }}" min="1">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="product_tax_type">Tipe Tax</label>
+                                        <label for="product_tax_type">Tipe Pajak</label>
                                         <select class="form-control" name="product_tax_type" id="product_tax_type">
-                                            <option value="" selected >Pilih Tipe Tax</option>
+                                            <option value="" selected >Pilih Tipe Pajak</option>
                                             <option value="1">Exclusive</option>
                                             <option value="2">Inclusive</option>
                                         </select>

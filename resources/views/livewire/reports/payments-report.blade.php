@@ -27,13 +27,13 @@
                         <div class="form-row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>Payments</label>
+                                    <label>Pembayaran</label>
                                     <select wire:model.live="payments" class="form-control" name="payments">
-                                        <option value="">Select Payments</option>
-                                        <option value="sale">Sales</option>
-                                        <option value="sale_return">Sale Returns</option>
-                                        <option value="purchase">Purchase</option>
-                                        <option value="purchase_return">Purchase Returns</option>
+                                        <option value="">Pilih Pembayaran</option>
+                                        <option value="sale">Penjualan</option>
+                                        <option value="sale_return">Retur Penjualan</option>
+                                        <option value="purchase">Pembelian</option>
+                                        <option value="purchase_return">Retur Pembelian</option>
                                     </select>
                                     @error('payments')
                                     <span class="text-danger mt-1">{{ $message }}</span>

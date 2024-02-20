@@ -7,7 +7,7 @@
                         <div class="form-row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>Start Date <span class="text-danger">*</span></label>
+                                    <label>Dari Tanggal <span class="text-danger">*</span></label>
                                     <input wire:model="start_date" type="date" class="form-control" name="start_date">
                                     @error('start_date')
                                         <span class="text-danger mt-1">{{ $message }}</span>
@@ -16,7 +16,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>End Date <span class="text-danger">*</span></label>
+                                    <label>Sampai Tanggal <span class="text-danger">*</span></label>
                                     <input wire:model="end_date" type="date" class="form-control" name="end_date">
                                     @error('end_date')
                                         <span class="text-danger mt-1">{{ $message }}</span>
@@ -29,7 +29,7 @@
                                 <span wire:target="generateReport" wire:loading class="spinner-border spinner-border-sm"
                                     role="status" aria-hidden="true"></span>
                                 <i wire:target="generateReport" wire:loading.remove class="bi bi-shuffle"></i>
-                                Filter Report
+                                Cari
                             </button>
                         </div>
                     </form>
@@ -49,7 +49,7 @@
                         </div>
                         <div>
                             <div class="text-value text-primary">{{ format_currency($sales_amount) }}</div>
-                            <div class="text-uppercase font-weight-bold small text-dark">{{ $total_sales }} Sales</div>
+                            <div class="text-uppercase font-weight-bold small text-dark">{{ $total_sales }} Penjualan</div>
                         </div>
                     </div>
                 </div>
@@ -65,8 +65,7 @@
                         </div>
                         <div>
                             <div class="text-value text-primary">{{ format_currency($sale_returns_amount) }}</div>
-                            <div class="text-uppercase font-weight-bold small text-dark">{{ $total_sale_returns }} Sale
-                                Returns</div>
+                            <div class="text-uppercase font-weight-bold small text-dark">{{ $total_sale_returns }} Retur Penjualan</div>
                         </div>
                     </div>
                 </div>
@@ -81,7 +80,7 @@
                     </div>
                     <div>
                         <div class="text-value text-primary">{{ format_currency($profit_amount) }}</div>
-                        <div class="text-uppercase font-weight-bold small text-dark">Profit</div>
+                        <div class="text-uppercase font-weight-bold small text-dark">Keuntungan</div>
                     </div>
                 </div>
             </div>
@@ -97,7 +96,7 @@
                         <div>
                             <div class="text-value text-primary">{{ format_currency($purchases_amount) }}</div>
                             <div class="text-uppercase font-weight-bold small text-dark">{{ $total_purchases }}
-                                Purchases</div>
+                                Pembelian</div>
                         </div>
                     </div>
                 </div>
@@ -114,8 +113,7 @@
                         <div>
                             <div class="text-value text-primary">{{ format_currency($purchase_returns_amount) }}</div>
                             <div class="text-uppercase font-weight-bold small text-dark">{{ $total_purchase_returns }}
-                                Purchase
-                                Returns</div>
+                                Retur Pembelian</div>
                         </div>
                     </div>
                 </div>
@@ -130,7 +128,7 @@
                     </div>
                     <div>
                         <div class="text-value text-primary">{{ format_currency($expenses_amount) }}</div>
-                        <div class="text-uppercase font-weight-bold small text-dark">Expenses</div>
+                        <div class="text-uppercase font-weight-bold small text-dark">Pengeluaran</div>
                     </div>
                 </div>
             </div>
@@ -144,7 +142,7 @@
                     </div>
                     <div>
                         <div class="text-value text-primary">{{ format_currency($payments_received_amount) }}</div>
-                        <div class="text-uppercase font-weight-bold small text-dark">Payments Received</div>
+                        <div class="text-uppercase font-weight-bold small text-dark">Pembayaran Diterima</div>
                     </div>
                 </div>
             </div>
@@ -158,7 +156,7 @@
                     </div>
                     <div>
                         <div class="text-value text-primary">{{ format_currency($payments_sent_amount) }}</div>
-                        <div class="text-uppercase font-weight-bold small text-dark">Payments Sent</div>
+                        <div class="text-uppercase font-weight-bold small text-dark">Pembayaran Terkirim</div>
                     </div>
                 </div>
             </div>
@@ -172,7 +170,7 @@
                     </div>
                     <div>
                         <div class="text-value text-primary">{{ format_currency($payments_net_amount) }}</div>
-                        <div class="text-uppercase font-weight-bold small text-dark">Payments Net</div>
+                        <div class="text-uppercase font-weight-bold small text-dark">Pembayaran Bersih</div>
                     </div>
                 </div>
             </div>

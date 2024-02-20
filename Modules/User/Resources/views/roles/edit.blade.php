@@ -4,9 +4,9 @@
 
 @section('breadcrumb')
     <ol class="breadcrumb border-0 m-0">
-        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-        <li class="breadcrumb-item"><a href="{{ route('roles.index') }}">Roles</a></li>
-        <li class="breadcrumb-item active">Edit</li>
+        <li class="breadcrumb-item"><a href="{{ route('home') }}">Beranda</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('roles.index') }}">Jabatan</a></li>
+        <li class="breadcrumb-item active">Ubah</li>
     </ol>
 @endsection
 
@@ -27,13 +27,13 @@
                     @csrf
                     @method('patch')
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Update Role <i class="bi bi-check"></i>
+                        <button type="submit" class="btn btn-primary">Perbarui Jabatan <i class="bi bi-check"></i>
                         </button>
                     </div>
                     <div class="card">
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="name">Role Name <span class="text-danger">*</span></label>
+                                <label for="name">Nama Jabatan <span class="text-danger">*</span></label>
                                 <input class="form-control" type="text" name="name" required value="{{ $role->name }}">
                             </div>
 
@@ -41,14 +41,14 @@
 
                             <div class="form-group">
                                 <label for="permissions">
-                                    Permissions <span class="text-danger">*</span>
+                                    Perizinan <span class="text-danger">*</span>
                                 </label>
                             </div>
 
                             <div class="form-group">
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="select-all">
-                                    <label class="custom-control-label" for="select-all">Give All Permissions</label>
+                                    <label class="custom-control-label" for="select-all">Beri Semua Perizinan</label>
                                 </div>
                             </div>
 
@@ -66,7 +66,7 @@
                                                         <input type="checkbox" class="custom-control-input"
                                                                id="show_total_stats" name="permissions[]"
                                                                value="show_total_stats" {{ $role->hasPermissionTo('show_total_stats') ? 'checked' : '' }}>
-                                                        <label class="custom-control-label" for="show_total_stats">Total Stats</label>
+                                                        <label class="custom-control-label" for="show_total_stats">Statistik Total</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-6">
@@ -74,7 +74,7 @@
                                                         <input type="checkbox" class="custom-control-input"
                                                                id="show_notifications" name="permissions[]"
                                                                value="show_notifications" {{ $role->hasPermissionTo('show_notifications') ? 'checked' : '' }}>
-                                                        <label class="custom-control-label" for="show_notifications">Notifications</label>
+                                                        <label class="custom-control-label" for="show_notifications">Notifikasi</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">

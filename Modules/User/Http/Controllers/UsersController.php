@@ -57,7 +57,7 @@ class UsersController extends Controller
             }
         }
 
-        toast("User Created & Assigned '$request->role' Role!", 'success');
+        toast("Pengguna Dibuat dan Ditugaskan '$request->role' Jabatan!", 'success');
 
         return redirect()->route('users.index');
     }
@@ -101,7 +101,7 @@ class UsersController extends Controller
             }
         }
 
-        toast("User Updated & Assigned '$request->role' Role!", 'info');
+        toast("Pengguna Dibuat dan Ditugaskan '$request->role' Jabatan!", 'info');
 
         return redirect()->route('users.index');
     }
@@ -112,7 +112,7 @@ class UsersController extends Controller
 
         $user->delete();
 
-        toast('User Deleted!', 'warning');
+        toast('Pengguna Dihapus!', 'warning');
 
         return redirect()->route('users.index');
     }

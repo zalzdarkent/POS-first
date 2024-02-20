@@ -39,7 +39,7 @@ class RolesController extends Controller
 
         $role->givePermissionTo($request->permissions);
 
-        toast('Role Created With Selected Permissions!', 'success');
+        toast('Jabatan Dibuat Dengan Izin Terpilih!', 'success');
 
         return redirect()->route('roles.index');
     }
@@ -66,7 +66,7 @@ class RolesController extends Controller
 
         $role->syncPermissions($request->permissions);
 
-        toast('Role Updated With Selected Permissions!', 'success');
+        toast('Jabatan Dibuat Dengan Izin Terpilih!', 'success');
 
         return redirect()->route('roles.index');
     }
@@ -77,7 +77,7 @@ class RolesController extends Controller
 
         $role->delete();
 
-        toast('Role Deleted!', 'success');
+        toast('Jabatan Dihapus!', 'success');
 
         return redirect()->route('roles.index');
     }
