@@ -88,7 +88,7 @@
             <div class="col-lg-5">
                 <div class="card border-0 shadow-sm h-100">
                     <div class="card-header">
-                        Ikhtisar Bulan {{ \Carbon\Carbon::now()->translatedFormat('F Y') }}
+                        Rekapan Bulan {{ \Carbon\Carbon::now()->translatedFormat('F Y') }}
                     </div>
                     <div class="card-body d-flex justify-content-center">
                         <div class="chart-container" style="position: relative; height:auto; width:280px">

@@ -11,7 +11,7 @@
 @can('delete_suppliers')
     <button id="delete" class="btn btn-danger btn-sm" onclick="
         event.preventDefault();
-        if (confirm('Are you sure? It will delete the data permanently!')) {
+        if (confirm('Apa kamu yakin? Ini akan menghapus data secara permanen!')) {
         document.getElementById('destroy{{ $data->id }}').submit()
         }
         ">

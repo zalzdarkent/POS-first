@@ -7,17 +7,17 @@ $(document).ready(function () {
                 labels: response.sales.original.days,
                 datasets: [
                     {
-                        label: "Sales",
+                        label: "Penjualan",
                         data: response.sales.original.data,
-                        backgroundColor: ["#6366F1"],
-                        borderColor: ["#6366F1"],
+                        backgroundColor: ["#F59E0B"],
+                        borderColor: ["#F59E0B"],
                         borderWidth: 1,
                     },
                     {
-                        label: "Purchases",
+                        label: "Pembelian",
                         data: response.purchases.original.data,
-                        backgroundColor: ["#A5B4FC"],
-                        borderColor: ["#A5B4FC"],
+                        backgroundColor: ["#0284C7"],
+                        borderColor: ["#0284C7"],
                         borderWidth: 1,
                     },
                 ],
@@ -37,7 +37,7 @@ $(document).ready(function () {
         let currentMonthChart = new Chart(overviewChart, {
             type: "doughnut",
             data: {
-                labels: ["Sales", "Purchases", "Expenses"],
+                labels: ["Penjualan", "Pembelian", "Pengeluaran"],
                 datasets: [
                     {
                         data: [
@@ -61,14 +61,14 @@ $(document).ready(function () {
                 labels: response.months,
                 datasets: [
                     {
-                        label: "Payment Sent",
+                        label: "Pembayaran Terkirim",
                         data: response.payment_sent,
                         fill: false,
                         borderColor: "#EA580C",
                         tension: 0,
                     },
                     {
-                        label: "Payment Received",
+                        label: "Pembayaran Diterima",
                         data: response.payment_received,
                         fill: false,
                         borderColor: "#2563EB",

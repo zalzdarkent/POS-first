@@ -1,7 +1,6 @@
-import './bootstrap.js';
-import '@coreui/coreui/dist/js/coreui.bundle.min.js';
+import "./bootstrap.js";
+import "@coreui/coreui/dist/js/coreui.bundle.min.js";
 
 $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-})
-
+    $('[data-toggle="tooltip"]').tooltip();
+});
