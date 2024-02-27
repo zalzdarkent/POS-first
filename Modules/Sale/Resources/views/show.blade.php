@@ -133,3 +133,5 @@
     </div>
 @endsection
 
+
+    <strong>{{ $customer->customer_name }}</strong>
