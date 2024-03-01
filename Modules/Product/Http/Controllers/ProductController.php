@@ -16,21 +16,24 @@ use Modules\Upload\Entities\Upload;
 class ProductController extends Controller
 {
 
-    public function index(ProductDataTable $dataTable) {
+    public function index(ProductDataTable $dataTable)
+    {
         abort_if(Gate::denies('access_products'), 403);
 
         return $dataTable->render('product::products.index');
     }
 
 
-    public function create() {
+    public function create()
+    {
         abort_if(Gate::denies('create_products'), 403);
 
         return view('product::products.create');
     }
 
 
-    public function store(StoreProductRequest $request) {
+    public function store(StoreProductRequest $request)
+    {
         $product = Product::create($request->except('document'));
 
         if ($request->has('document')) {
@@ -45,38 +48,38 @@ class ProductController extends Controller
     }
 
 
-    public function show(Product $product) {
+    public function show(Product $product)
+    {
         abort_if(Gate::denies('show_products'), 403);
 
         return view('product::products.show', compact('product'));
     }
 
 
-    public function edit(Product $product) {
+    public function edit(Product $product)
+    {
         abort_if(Gate::denies('edit_products'), 403);
 
         return view('product::products.edit', compact('product'));
     }
 
 
-    public function update(UpdateProductRequest $request, Product $product) {
+    public function update(UpdateProductRequest $request, Product $product)
+    {
         $product->update($request->except('document'));
 
         if ($request->has('document')) {
-            if (count($product->getMedia('images')) > 0) {
-                foreach ($product->getMedia('images') as $media) {
-                    if (!in_array($media->file_name, $request->input('document', []))) {
-                        $media->delete();
-                    }
+            // Hapus gambar lama
+            foreach ($product->getMedia('images') as $media) {
+                if (!in_array($media->file_name, $request->input('document', []))) {
+                    Storage::delete($media->getPath());
+                    $media->delete();
                 }
             }
 
-            $media = $product->getMedia('images')->pluck('file_name')->toArray();
-
+            // Tambah gambar baru
             foreach ($request->input('document', []) as $file) {
-                if (count($media) === 0 || !in_array($file, $media)) {
-                    $product->addMedia(Storage::path('temp/dropzone/' . $file))->toMediaCollection('images');
-                }
+                $product->addMedia(Storage::path('temp/dropzone/' . $file))->toMediaCollection('images');
             }
         }
 
@@ -86,10 +89,21 @@ class ProductController extends Controller
     }
 
 
-    public function destroy(Product $product) {
+    public function destroy(Product $product)
+    {
         abort_if(Gate::denies('delete_products'), 403);
 
+        // Hapus file-file gambar terkait dari direktori lokal
+        foreach ($product->getMedia('images') as $media) {
+            // Hapus file gambar
+            Storage::delete($media->getPath());
+            // Hapus entri media dari produk
+            $media->delete();
+        }
+
+        // Hapus produk dari database
         $product->delete();
+
 
         toast('Produk Dihapus!', 'warning');
 

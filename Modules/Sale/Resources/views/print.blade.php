@@ -79,7 +79,7 @@
                             @endforeach
                             </tbody>
                             <tr>
-                                <td colspan="6">Jenis Pembayaran    : Tunai <span style="float: right;">Total : {{ format_currency($sale->total_amount) }}<br>Biaya Pengiriman  : {{ format_currency($sale->shipping_amount) }}<br>Sisa Tagihan : {{ format_currency($sale->due_amount)}}</span><br>Tanggal Kirim :   {{ \Carbon\Carbon::parse($sale->date)->format('d M, Y') }}</td>
+                                <td colspan="6">Jenis Pembayaran    : Tunai <span style="float: right;">Total : <strong>{{ format_currency($sale->total_amount) }}</strong><br>Ongkos  : <strong>{{ format_currency($sale->shipping_amount) }}</strong><br>Sisa Tagihan : <strong>{{ format_currency($sale->due_amount)}}</strong></span><br>Tanggal Kirim :   {{ \Carbon\Carbon::parse($sale->date)->format('d M, Y') }}</td>
                             </tr>
                             <tr>
                                 <td colspan="3">Armada Pengiriman</td>
