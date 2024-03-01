@@ -16,9 +16,9 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header d-flex flex-wrap align-items-center">
-                        <div>
+                        {{-- <div>
                             Reference: <strong>{{ $sale->reference }}</strong>
-                        </div>
+                        </div> --}}
                         <a target="_blank" class="btn btn-sm btn-secondary mfs-auto mfe-1 d-print-none" href="{{ route('sales.pdf.surjal', $sale->id) }}">
                             <i class="bi bi-printer"></i> Print
                         </a>
@@ -46,7 +46,7 @@
 
                             <div class="col-sm-4 mb-3 mb-md-0">
                                 <h5 class="mb-2 border-bottom pb-2">Invoice Info:</h5>
-                                <div>Invoice: <strong>INV/{{ $sale->reference }}</strong></div>
+                                <div>Invoice: <strong>{{ $sale->reference }}</strong></div>
                                 <div>Date: {{ \Carbon\Carbon::parse($sale->date)->format('d M, Y') }}</div>
                                 <div>
                                     Status: <strong>{{ $sale->status }}</strong>
